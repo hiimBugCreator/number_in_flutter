@@ -1,7 +1,18 @@
 library number_in_flutter;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:number_in_flutter/arabic_number.dart';
+import 'package:number_in_flutter/roman_numeral.dart';
+
+class NumberInFlutter {
+  static final NumberInFlutter _instance = NumberInFlutter._internal();
+
+  factory NumberInFlutter() {
+    return _instance;
+  }
+
+  NumberInFlutter._internal();
+
+  RomanNumeral get romance => RomanNumeral();
+
+  ArabicNumber get normalNumber => ArabicNumber();
 }
