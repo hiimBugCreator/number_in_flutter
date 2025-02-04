@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:number_in_flutter/numberNaming/number_naming_import.dart';
 import 'package:number_in_flutter/number_in_flutter.dart';
 
 void main() {
@@ -57,5 +57,24 @@ void main() {
         numberInFlutter.romance
             .convertNaturalNumberToRomanceNumber(naturalNumber: 8000),
         null);
+  });
+
+  test('name 1', () {
+    final numberInFlutter = NumberInFlutter();
+    expect(
+        numberInFlutter.normalNumber.numberToWords(123456789, NumberNamingVI()),
+        "một trăm hai mươi ba triệu bốn trăm năm mươi sáu nghìn bảy trăm tám mươi chín");
+  });
+
+  test('name 2', () {
+    final numberInFlutter = NumberInFlutter();
+    expect(numberInFlutter.normalNumber.numberToWords(223, NumberNamingCN()),
+        "二百二十三");
+  });
+
+  test('name 3', () {
+    final numberInFlutter = NumberInFlutter();
+    expect(numberInFlutter.normalNumber.numberToWords(999, NumberNamingJP()),
+        "きゅうひゃくきゅうじゅうきゅう");
   });
 }
